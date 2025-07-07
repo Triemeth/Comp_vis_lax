@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 model = YOLO("yolo11n.pt")
 
-results = model.train(data = "lax.yml", epochs = 100, imgsz=640)
+results = model.train(data = "/lax.yml", epochs = 100, imgsz=640)
 
 metrics = model.val()
 metrics.box.maps
