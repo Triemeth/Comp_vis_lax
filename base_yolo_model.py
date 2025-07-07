@@ -1,10 +1,20 @@
 from ultralytics import YOLO
 import matplotlib.pyplot as plt
 
-model = YOLO("yolo11n.pt")
+def train_model():
+    model = YOLO("yolo11n.pt")
+    results = model.train(
+        data="Lax_OB/lax.yaml", 
+        epochs=10, 
+        imgsz=640, 
+        device=0
+    )
 
-results = model.train(data = "/lax.yml", epochs = 100, imgsz=640)
+    metrics = model.val()
+    print(metrics.box.maps)
+    return results
 
-metrics = model.val()
-metrics.box.maps
+if __name__ == '__main__':
+    res = train_model()
+
 #py -3.12 base_yolo_model.py
