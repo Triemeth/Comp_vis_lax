@@ -11,4 +11,4 @@ project = rf.workspace("ryseai").project("lacrosse-object-detection")
 version = project.version(5)
 dataset = version.download("yolov11")
 
-print("hello")
+#py -3.12 get_data.py
